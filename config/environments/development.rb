@@ -27,8 +27,12 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
+  #config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :test
+  host = 'bbbe687d4ef44b0e8b78922e30915aa3.vfs.cloud9.us-east-2.amazonaws.com/'
+  #https://bbbe687d4ef44b0e8b78922e30915aa3.vfs.cloud9.us-east-2.amazonaws.com/rails/mailers/user_mailer/account_activation
+  config.action_mailer.default_url_options = { host: host, protocol: 'http' }
   config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.
